@@ -1,11 +1,10 @@
-class Tarefas{
-    newTarefa(id,titulo,descricao,status,data) {
-        tarefa = {
-        tarefaid: id,
-        titulo: titulo,
-        descricao: descricao,
-        status: status,
-        data: data,
+class tarefaModel{
+    constructor(titulo,descricao,status,data) {
+        this.titulo = titulo,
+        this.descricao = descricao,
+        this.status = status,
+        this.data = data
       }
     }
-}
+
+module.exports = tarefaModel;    

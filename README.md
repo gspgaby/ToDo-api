@@ -4,6 +4,8 @@ Projeto do modulo 3 realizado durante o curso de  Web Desenvolvimento da Resilia
 ##Tecnologias
 As seguintes ferramentas foram utilizadas na construção do projeto:
 
+- Javascript
 - Node.js
 - Express
 - Body Parser
+- Cors

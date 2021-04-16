@@ -1,10 +1,10 @@
-class Usuario{
-    newUsuario(id,name,email,senha){
-        usuario = {
-            id:id,
-            name:name,
-            email:email,
-            senha:senha
-        }
+class usuarioModel{
+    constructor (id,nome, email, senha) {
+        this.id = id,
+        this.nome = nome,
+        this.email = email,
+        this.senha = senha
     }
 }
+
+module.exports = usuarioModel;
