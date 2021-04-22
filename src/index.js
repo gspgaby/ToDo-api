@@ -16,6 +16,6 @@ usuariosController(app, bd)
 tarefasController(app, bd)
 
 app.listen(port, () => {
-  console.log(`app listening at http://localhost:${port}`)
+  console.log(`Servidor rodando no http://localhost:${port}`)
 })
 

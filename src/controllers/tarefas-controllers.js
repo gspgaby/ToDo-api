@@ -1,63 +1,69 @@
-const tarefaModel = require('../models/tarefas.js')
+const tarefaDao = require("../DAO/tarefa-dao.js");
+//const tarefaModel = require('../models/tarefas.js')
 
 function tarefasController(app, bd){
-    app.get('/tarefas', (req, res) => {
-      bd.all("SELECT * FROM tarefas", function(err, rows){
-        if(err){
-          throw new Error(`Erro ao rodar consulta: ${err}`)
+  const DAO = new tarefaDao(bd);
+
+    app.get('/tarefas', async (req, res) => {
+      try {
+      let consultarTarefa = DAO.listaTarefas();
+      res.send(consultarTarefa);
+    } catch (e) {
+      res.send({ mensagem: `Falha ao listar ${titulo}` });
+    }
+  });
+
+      app.post('/tarefas', async (req, res)=> {
+        try {
+          const tarefa = req.body;
+    
+          const novaTarefa = new tarefaModel(
+            0,
+            tarefa.TITULO,
+            tarefa.DESCRICAO,
+            tarefa.STATUS,
+            tarefa.DATACRIACAO,
+            tarefa.ID_USUARIO
+          );
+    
+          let novaTarefaCriada = DAO.insereTarefa(novaTarefa);
+          res.send(novaTarefaCriada);
+        } catch (e) {
+          res.send({ mensagem: `Falha ao incluir tarefa` });
         }
-        else{
-        res.send(rows)
-        }
-      })
-      })
-  
-      app.post('/tarefas', (req, res)=> {
-        const body = req.body;
-        let tarefas = new tarefaModel(body.titulo, body.descricao, body.status, body.data);
-        
-        if(body.titulo && body.descricao && body.status && body.data){
-          console.log(JSON.stringify(tarefas));
-          bd.tarefas.push(tarefas)
-          res.send(tarefas)
-        };
-        res.send("Deu ruim!!!")
-      })
-  
-      app.get("/tarefas/:titulo", (req, res) =>{
-      
-        const tarefas = req.params.TAREFAS;
-        const titulo = bd.usuarios.find(TAREFAS => TAREFAS.TITULO == tarefas) 
-        console.log(titulo)
-        res.send(titulo)
       });
   
-      app.delete("/tarefas/:titulo", (req, res) =>{
-        const tarefas = req.params.TAREFAS;
-        const titulo = bd.titulo
-        
-        for(let i = 0; i < tarefas.length; i++) {
-          if (titulo === tarefas[i].titulo) {
-            users.splice(i,1) 
-          }
+      app.get("/tarefas/:titulo", async(req, res) => {
+    try {
+      const titulo = req.params.titulo;
+      let consultarTarefaPorTitulo = await DAO.listaTituloPorTarefas(titulo);
+      res.send(consultarTarefaPorTitulo);
+    } catch (e) {
+      res.send({ mensagem: `Falha ao consultar ${titulo}` });
+    }
+  });
+
+  
+      app.delete("/tarefas/:titulo", async (req, res) =>{
+        try{
+          let titulo = req.params.titulo;
+          await DAO.deletaTarefa(titulo)
+          res.send({ mensagem: `${titulo} deletado com sucesso` });
+        } catch (e) {
+          res.send({ mensagem: `Falha ao deletar ${titulo}` });
         }
-        res.send({mensagem: `${titulo} deletado com sucesso`}) 
-        
         });
   
-      app.put ('/tarefas/:titulo', (req,res) => {
-        const tarefas = req.params.TAREFAS;
-        bd.tarefas.forEach((tarefas) => {  
-          if(titulo == tarefas.titulo){
-            tarefas.descricao = req.body.descricao;
-            tarefas.status = req.body.status;
-            res.send({mensagem: `${titulo} Usuario alterado com sucesso`})
-          }
-          else{
-            res.send(`[ERROR]:${titulo} Usuario não encontrado`)
-          }
-        })
-    })    
-  }
+      app.put ('/tarefas/:titulo', async (req,res) => {
+        try{
+          let titulo = req.params.titulo;
+          const body = req.body;
+          await DAO.alteraTarefa(titulo, body)
+          res.send({ mensagem: `${titulo} alterado com sucesso` });
+        } catch (e) {
+          res.send({ mensagem: `Falha ao alterar ${titulo}` });
+        }
+      });
+      }
 
    module.exports = tarefasController;

@@ -1,11 +1,68 @@
-##Projeto Módulo 3 To Do app com Node.js
-Projeto do modulo 3 realizado durante o curso de  Web Desenvolvimento da Resilia Educação, sendo feito passo a passo e atualizado semanalmente.
+# Projeto Módulo 3 ToDo api com Node.js
 
-##Tecnologias
-As seguintes ferramentas foram utilizadas na construção do projeto:
+O projeto do Módulo 3 da Resilia Educação consiste na criação de um ToDo API no padrão API REST com Node.js para gerenciamento dos registros de usuários e tarefas.
 
-- Javascript
-- Node.js
-- Express
-- Body Parser
-- Cors
+## Recursos
+
+- Criação de novos usuários e tarefas;
+- Alteração de registros de usuários e tarefas existentes;
+- Exclusão de registros de usuários e tarefas existentes;
+- Consulta de registros de usuários e tarefas existentes.
+
+## Pré-requisitos necessários para a utilização da Api
+
+- Instale NodeJS em seu computador.
+- Clone os aquivos do repositório.
+```sh
+git clone https://github.com/gspgaby/ToDo-api.git
+```
+-Após entrar na pasta clonada, instale via terminal utilizando o comando:
+```sh
+npm install 
+```
+Em seguida, inicie a aplicação via terminal utilizando o comando:
+```sh
+npm run dev 
+```
+
+## 🛠️ Ambiente de construção
+
+* [JavaScript]
+* [NodeJS]
+* [NPM]
+* [Body-parser]
+* [Cors] 
+* [Express] 
+* [SQLite3]
+<br>
+
+## Rotas
+
+#### GET
+Consulta de todos os registros:
+- http://localhost:3000/usuarios
+- http://localhost:3000/tarefas
+Consultas individuais:
+- http://localhost:3000/usuarios/email
+- http://localhost:3000/tarefas/titulo
+
+#### POST
+Criação de novos usuários:
+- http://localhost:3000/usuarios 
+Criação de novas tarefas:
+- http://localhost:3000/tarefas 
+
+
+#### PUT
+Atualização de usuários:
+- http://localhost:3000/usuarios/email 
+Atualização de tarefas:
+- http://localhost:3000/tarefas/titulo
+
+
+#### DELETE
+
+Exclusão de usuários:
+- http://localhost:3000/usuarios/email
+Exclusão de tarefas:
+- http://localhost:3000/tarefas/titulo
