@@ -40,15 +40,18 @@ npm run dev
 
 #### GET
 Consulta de todos os registros:
+<br>
 - http://localhost:3000/usuarios
 - http://localhost:3000/tarefas 
 <br>
 Consultas individuais:
+<br>
 - http://localhost:3000/usuarios/email
 - http://localhost:3000/tarefas/titulo
 
 #### POST
 Criação de novos usuários:
+<br>
 - http://localhost:3000/usuarios 
 <br>
 Criação de novas tarefas:
@@ -57,15 +60,20 @@ Criação de novas tarefas:
 
 #### PUT
 Atualização de usuários:
+<br>
 - http://localhost:3000/usuarios/email 
 <br>
 Atualização de tarefas:
+<br>
 - http://localhost:3000/tarefas/titulo
 
 
 #### DELETE
 
 Exclusão de usuários:
-- http://localhost:3000/usuarios/email<br>
+<br>
+- http://localhost:3000/usuarios/email
+<br>
 Exclusão de tarefas:
+<br>
 - http://localhost:3000/tarefas/titulo
