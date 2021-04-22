@@ -44,33 +44,27 @@ Consulta de todos os registros:
 - http://localhost:3000/usuarios
 - http://localhost:3000/tarefas 
 <br>
+
 Consultas individuais:
+
 <br>
 - http://localhost:3000/usuarios/email
 - http://localhost:3000/tarefas/titulo
 
 #### POST
-Criação de novos usuários:
-<br>
-- http://localhost:3000/usuarios 
-<br>
-Criação de novas tarefas:
+Criação de novos usuários e tarefas:
+
+- http://localhost:3000/usuarios
 - http://localhost:3000/tarefas 
 
 #### PUT
-Atualização de usuários:
-<br>
+Atualização de usuários e tarefas:
+
 - http://localhost:3000/usuarios/email 
-<br>
-Atualização de tarefas:
-<br><br>
 - http://localhost:3000/tarefas/titulo
 
 #### DELETE
-Exclusão de usuários:
-<br>
+Exclusão de usuários e tarefas:
+
 - http://localhost:3000/usuarios/email
-<br>
-Exclusão de tarefas:
-<br><br>
 - http://localhost:3000/tarefas/titulo
