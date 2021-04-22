@@ -57,23 +57,20 @@ Criação de novos usuários:
 Criação de novas tarefas:
 - http://localhost:3000/tarefas 
 
-
 #### PUT
 Atualização de usuários:
 <br>
 - http://localhost:3000/usuarios/email 
 <br>
 Atualização de tarefas:
-<br>
+<br><br>
 - http://localhost:3000/tarefas/titulo
 
-
 #### DELETE
-
 Exclusão de usuários:
 <br>
 - http://localhost:3000/usuarios/email
 <br>
 Exclusão de tarefas:
-<br>
+<br><br>
 - http://localhost:3000/tarefas/titulo
